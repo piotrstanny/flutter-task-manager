@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_todo_app/components/tasks_list.dart';
 
 class TasksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff4462FE),
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        backgroundColor: Color(0xff4462FE),
+        child: Icon(
+          Icons.add,
+        ),
+      ),
       body: Column(
         children: <Widget>[
           Container(
@@ -51,7 +59,7 @@ class TasksScreen extends StatelessWidget {
                 boxShadow: <BoxShadow>[
                   BoxShadow(
                     offset: Offset(0.0, 5.0),
-                    blurRadius: 25.0,
+                    blurRadius: 20.0,
                   )
                 ],
                 color: Colors.white,
@@ -60,6 +68,7 @@ class TasksScreen extends StatelessWidget {
                   topRight: Radius.circular(30.0),
                 ),
               ),
+              child: TasksList(),
             ),
           ),
         ],
