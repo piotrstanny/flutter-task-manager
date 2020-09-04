@@ -4,15 +4,18 @@ class AddTaskScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: Color(0xff4462FE),
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30.0),
-          topRight: Radius.circular(30.0),
+      color: Color(0xff757575),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30.0),
+            topRight: Radius.circular(30.0),
+          ),
         ),
-      ),
-      child: Center(
-        child: Text('Pop UUUUUPPpp'),
+        child: Center(
+          child: Text('Pop UUUUUPPpp'),
+        ),
       ),
     );
   }
