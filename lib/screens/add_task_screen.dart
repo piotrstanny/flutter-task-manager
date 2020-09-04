@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AddTaskScreen extends StatelessWidget {
+  final Function saveNewTaskCallback;
+  AddTaskScreen({this.saveNewTaskCallback});
+
   @override
   Widget build(BuildContext context) {
+    String newTaskTitle = '';
+
     return Container(
       color: Color(0xff757575),
       height: 250.0,
@@ -29,6 +34,9 @@ class AddTaskScreen extends StatelessWidget {
                   border: OutlineInputBorder(),
                   hintText: 'Type your task here...',
                 ),
+                onChanged: (value) {
+                  newTaskTitle = value;
+                },
               ),
               RaisedButton(
                 color: Color(0xff4462FE),
@@ -37,7 +45,10 @@ class AddTaskScreen extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  saveNewTaskCallback(newTaskTitle);
+                  Navigator.pop(context);
+                },
                 child: Text(
                   'SAVE',
                   style: TextStyle(fontSize: 20.0),
