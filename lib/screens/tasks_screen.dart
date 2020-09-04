@@ -3,12 +3,25 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_todo_app/components/tasks_list.dart';
 
 class TasksScreen extends StatelessWidget {
+  Widget buildBottomSheet(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Text('pop up'),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff4462FE),
       floatingActionButton: FloatingActionButton(
-        onPressed: null,
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: buildBottomSheet,
+          );
+        },
         backgroundColor: Color(0xff4462FE),
         child: Icon(
           Icons.add,
