@@ -17,7 +17,7 @@ class _TasksListState extends State<TasksList> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 60.0),
+      padding: const EdgeInsets.symmetric(horizontal: 50.0),
       child: ListView(
         children: <Widget>[
           TaskTile(taskTitle: tasks[0].name, isChecked: tasks[0].isDone),

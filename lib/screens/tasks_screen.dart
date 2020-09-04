@@ -28,10 +28,10 @@ class TasksScreen extends StatelessWidget {
         ),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(
-                top: 60.0, left: 0.0, right: 30.0, bottom: 35.0),
+            padding: EdgeInsets.only(top: 50.0, bottom: 35.0, left: 60.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
