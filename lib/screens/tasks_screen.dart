@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo_app/models/task_data.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_todo_app/components/tasks_list.dart';
 import 'package:flutter_todo_app/screens/add_task_screen.dart';
-import 'package:flutter_todo_app/models/task.dart';
 import 'package:provider/provider.dart';
 
-class TasksScreen extends StatefulWidget {
-  @override
-  _TasksScreenState createState() => _TasksScreenState();
-}
-
-class _TasksScreenState extends State<TasksScreen> {
+class TasksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,9 +21,11 @@ class _TasksScreenState extends State<TasksScreen> {
                     bottom: MediaQuery.of(context).viewInsets.bottom),
                 child: AddTaskScreen(
                   saveNewTaskCallback: (newTask) {
-                    setState(() {
-                      tasks.add(Task(name: newTask));
-                    });
+//                    setState(() {
+//                      Provider.of<TaskData>(context)
+//                          .tasks
+//                          .add(Task(name: newTask));
+//                    });
                   },
                 ),
               ),
@@ -70,7 +67,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                 ),
                 Text(
-                  'You\'ve got ${tasks.length} tasks.\nLet\'s get it done one by one!',
+                  'You\'ve got ${Provider.of<TaskData>(context).tasks.length} tasks.\nLet\'s get it done one by one!',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16.0,
@@ -94,7 +91,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   topRight: Radius.circular(30.0),
                 ),
               ),
-              child: TasksList(tasksList: tasks),
+              child: TasksList(),
             ),
           ),
         ],
