@@ -75,7 +75,7 @@ class _TasksScreenState extends State<TasksScreen> {
                   ),
                 ),
                 Text(
-                  'You\'ve got 5 tasks',
+                  'You\'ve got ${tasks.length} tasks.\nLet\'s get it done one by one!',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16.0,
