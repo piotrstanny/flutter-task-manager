@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_todo_app/components/tasks_list.dart';
 import 'package:flutter_todo_app/screens/add_task_screen.dart';
 import 'package:flutter_todo_app/models/task.dart';
+import 'package:provider/provider.dart';
 
 class TasksScreen extends StatefulWidget {
   @override
@@ -10,12 +11,6 @@ class TasksScreen extends StatefulWidget {
 }
 
 class _TasksScreenState extends State<TasksScreen> {
-  List<Task> tasks = [
-    Task(name: 'Choose uni modules'),
-    Task(name: 'Complete enroloment'),
-    Task(name: 'Apply to SFE'),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
