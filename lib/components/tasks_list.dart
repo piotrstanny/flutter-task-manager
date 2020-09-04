@@ -18,12 +18,14 @@ class _TasksListState extends State<TasksList> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 50.0),
-      child: ListView(
-        children: <Widget>[
-          TaskTile(taskTitle: tasks[0].name, isChecked: tasks[0].isDone),
-          TaskTile(taskTitle: tasks[1].name, isChecked: tasks[1].isDone),
-          TaskTile(taskTitle: tasks[2].name, isChecked: tasks[2].isDone),
-        ],
+      child: ListView.builder(
+        itemCount: tasks.length,
+        itemBuilder: (context, index) {
+          return TaskTile(
+            taskTitle: tasks[index].name,
+            isChecked: tasks[index].isDone,
+          );
+        },
       ),
     );
   }
