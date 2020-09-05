@@ -11,6 +11,16 @@ class TaskData extends ChangeNotifier {
 
   // Create getter to read list's length, so outside just use methods instead of making calculations within the code out there
   int get taskCount {
+    int count = 0;
+    for (Task task in _tasks) {
+      if (!task.isDone) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  int get listLength {
     return _tasks.length;
   }
 

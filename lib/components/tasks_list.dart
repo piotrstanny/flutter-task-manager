@@ -11,7 +11,7 @@ class TasksList extends StatelessWidget {
       child: Consumer<TaskData>(
         builder: (context, taskData, child) {
           return ListView.builder(
-            itemCount: taskData.taskCount,
+            itemCount: taskData.listLength,
             itemBuilder: (context, index) {
               final taskItem = taskData.getTasks[index];
               return TaskTile(

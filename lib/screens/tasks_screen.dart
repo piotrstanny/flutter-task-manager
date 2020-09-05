@@ -8,6 +8,8 @@ import 'package:provider/provider.dart';
 class TasksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    int tasksLeft = Provider.of<TaskData>(context).taskCount;
+
     return Scaffold(
       backgroundColor: Color(0xff4462FE),
       floatingActionButton: FloatingActionButton(
@@ -59,7 +61,16 @@ class TasksScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'You\'ve got ${Provider.of<TaskData>(context).taskCount} tasks.\nLet\'s get it done one by one!',
+                  '$tasksLeft tasks left.',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16.0,
+                  ),
+                ),
+                Text(
+                  tasksLeft == 0
+                      ? 'Well done! You can relax now :)'
+                      : 'Let\'s get it done one by one!',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16.0,
