@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_todo_app/models/task_data.dart';
 
 class AddTaskScreen extends StatelessWidget {
-  final Function saveNewTaskCallback;
-  AddTaskScreen({this.saveNewTaskCallback});
-
   @override
   Widget build(BuildContext context) {
     String newTaskTitle = '';
@@ -46,7 +45,8 @@ class AddTaskScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30.0),
                 ),
                 onPressed: () {
-                  saveNewTaskCallback(newTaskTitle);
+                  Provider.of<TaskData>(context, listen: false)
+                      .addTask(newTaskTitle);
                   Navigator.pop(context);
                 },
                 child: Text(
