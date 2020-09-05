@@ -67,7 +67,7 @@ class TasksScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'You\'ve got ${Provider.of<TaskData>(context).tasks.length} tasks.\nLet\'s get it done one by one!',
+                  'You\'ve got ${Provider.of<TaskData>(context).taskCount} tasks.\nLet\'s get it done one by one!',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16.0,

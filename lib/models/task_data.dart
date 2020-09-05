@@ -7,4 +7,8 @@ class TaskData extends ChangeNotifier {
     Task(name: 'Complete enroloment'),
     Task(name: 'Apply to SFE'),
   ];
+
+  int get taskCount {
+    return tasks.length;
+  }
 }
