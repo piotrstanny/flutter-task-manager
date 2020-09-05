@@ -1,29 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todo_app/components/task_checkbox.dart';
 
-class TaskTile extends StatefulWidget {
-  @override
-  _TaskTileState createState() => _TaskTileState();
-}
+class TaskTile extends StatelessWidget {
+  final bool isChecked;
+  final String taskTitle;
+  final Function checkboxCallback;
+  final Function onLongPress;
 
-class _TaskTileState extends State<TaskTile> {
-  bool isChecked = false;
+  TaskTile(
+      {this.taskTitle,
+      this.isChecked,
+      this.checkboxCallback,
+      this.onLongPress});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onLongPress: onLongPress,
       title: Text(
-        'Task number 1',
+        taskTitle,
         style: TextStyle(
             decoration: isChecked ? TextDecoration.lineThrough : null),
       ),
-      trailing: TaskCheckbox(
-        checkboxStatus: isChecked,
-        checkboxToggle: (bool newValue) {
-          setState(() {
-            isChecked = newValue;
-          });
-        },
+      trailing: Checkbox(
+        value: isChecked,
+        activeColor: Color(0xff4462FE),
+        onChanged: checkboxCallback,
       ),
     );
   }

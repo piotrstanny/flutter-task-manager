@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo_app/models/task_data.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_todo_app/components/tasks_list.dart';
 import 'package:flutter_todo_app/screens/add_task_screen.dart';
+import 'package:provider/provider.dart';
 
 class TasksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    int tasksLeft = Provider.of<TaskData>(context).taskCount;
+
     return Scaffold(
       backgroundColor: Color(0xff4462FE),
       floatingActionButton: FloatingActionButton(
@@ -28,10 +32,10 @@ class TasksScreen extends StatelessWidget {
         ),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(
-                top: 60.0, left: 0.0, right: 30.0, bottom: 35.0),
+            padding: EdgeInsets.only(top: 50.0, bottom: 35.0, left: 60.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -57,7 +61,16 @@ class TasksScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'You\'ve got 5 tasks',
+                  '$tasksLeft tasks left.',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16.0,
+                  ),
+                ),
+                Text(
+                  tasksLeft == 0
+                      ? 'Well done! You can relax now :)'
+                      : 'Let\'s get it done one by one!',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 16.0,

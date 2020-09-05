@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_todo_app/models/task_data.dart';
 
 class AddTaskScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    String newTaskTitle = '';
+
     return Container(
       color: Color(0xff757575),
       height: 250.0,
@@ -29,6 +33,9 @@ class AddTaskScreen extends StatelessWidget {
                   border: OutlineInputBorder(),
                   hintText: 'Type your task here...',
                 ),
+                onChanged: (value) {
+                  newTaskTitle = value;
+                },
               ),
               RaisedButton(
                 color: Color(0xff4462FE),
@@ -37,7 +44,11 @@ class AddTaskScreen extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Provider.of<TaskData>(context, listen: false)
+                      .addTask(newTaskTitle);
+                  Navigator.pop(context);
+                },
                 child: Text(
                   'SAVE',
                   style: TextStyle(fontSize: 20.0),
