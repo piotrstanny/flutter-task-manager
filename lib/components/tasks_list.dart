@@ -7,7 +7,7 @@ class TasksList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 50.0),
+      padding: const EdgeInsets.symmetric(horizontal: 40.0),
       child: Consumer<TaskData>(
         builder: (context, taskData, child) {
           return ListView.builder(

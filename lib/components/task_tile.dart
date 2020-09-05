@@ -15,6 +15,7 @@ class TaskTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      dense: true,
       onLongPress: onLongPress,
       title: Text(
         taskTitle,

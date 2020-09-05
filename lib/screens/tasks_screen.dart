@@ -35,27 +35,27 @@ class TasksScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(top: 50.0, bottom: 35.0, left: 60.0),
+            padding: EdgeInsets.only(top: 50.0, bottom: 35.0, left: 50.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 CircleAvatar(
-                  radius: 40.0,
+                  radius: 30.0,
                   backgroundColor: Colors.white,
                   child: Icon(
                     Icons.format_list_bulleted,
                     color: Color(0xff4462FE),
-                    size: 40.0,
+                    size: 35.0,
                   ),
                 ),
                 SizedBox(
-                  height: 20.0,
+                  height: 15.0,
                 ),
                 Text(
                   'Task Manager',
                   style: GoogleFonts.bebasNeue(
                     textStyle: TextStyle(
-                      fontSize: 50.0,
+                      fontSize: 40.0,
                       color: Colors.white,
                     ),
                   ),
@@ -64,7 +64,7 @@ class TasksScreen extends StatelessWidget {
                   '$tasksLeft tasks left.',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 16.0,
+                    fontSize: 15.0,
                   ),
                 ),
                 Text(
@@ -73,7 +73,7 @@ class TasksScreen extends StatelessWidget {
                       : 'Let\'s get it done one by one!',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 16.0,
+                    fontSize: 15.0,
                   ),
                 ),
               ],
@@ -94,7 +94,20 @@ class TasksScreen extends StatelessWidget {
                   topRight: Radius.circular(30.0),
                 ),
               ),
-              child: TasksList(),
+              child: Provider.of<TaskData>(context).listLength > 0
+                  ? TasksList()
+                  : Padding(
+                      padding: const EdgeInsets.only(top: 40.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: <Widget>[
+                          Text(
+                            'No tasks on the list.\nTap \'Add\' button at the bottom to add new.',
+                            textAlign: TextAlign.center,
+                          )
+                        ],
+                      ),
+                    ),
             ),
           ),
         ],
