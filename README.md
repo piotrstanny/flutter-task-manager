@@ -1,6 +1,11 @@
 # flutter_todo_app
 
-Flutter Mobile App - create To Do lists, check them and remove once tasks completed.
+Flutter Mobile App - create To-Do lists, check them and remove once tasks completed. 
+- Provider package used for state management.
+
+![Flutter To-Do App](https://media.giphy.com/media/jQJcgBfgxuN0cwd3z8/giphy.gif)
+
+
 
 ## Getting Started
 
